@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="section">
+    <button class="btn" bindtap="chooseAndUploadImage">上传图片</button>
+  </view>
+  
+  <view class="section" wx:if="{{imageList.length > 0}}">
+    <view class="title">已上传的图片：</view>
+    <view class="image-list">
+      <block wx:for="{{imageList}}" wx:key="url">
+        <view class="image-item">
+          <image src="{{item.url}}" mode="aspectFill" bindtap="previewImage" data-url="{{item.url}}"/>
+          <view class="delete-btn" bindtap="deleteImage" data-key="{{item.key}}">删除</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="status">
+      <text>上传状态：{{uploadStatus}}</text>
+    </view>
+  </view>
+</view> 

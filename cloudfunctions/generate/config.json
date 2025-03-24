@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "openapi": []
+  },
+  "timeout": 60,
+  "envVariables": {},
+  "vpc": false,
+  "runtime": "Nodejs12",
+  "memorySize": 512,
+  "triggers": []
+} 

@@ -1,0 +1,12 @@
+{
+  "name": "wx-miniprogram-pyq",
+  "version": "1.0.0",
+  "description": "微信小程序阿里云服务测试",
+  "main": "app.js",
+  "dependencies": {
+    "ali-oss": "^6.17.1",
+    "node-fetch": "^2.7.0",
+    "openai": "^4.73.1",
+    "wx-server-sdk": "^3.0.1"
+  }
+}

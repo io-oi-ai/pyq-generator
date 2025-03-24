@@ -1,0 +1,25 @@
+{
+  "button": [
+    {
+      "name": "文案生成",
+      "sub_button": [
+        {
+          "type": "view",
+          "name": "免费文案",
+          "url": "https://你的域名/index.html"
+        },
+        {
+          "type": "miniprogram",
+          "name": "图片上传",
+          "url": "pages/upload/upload",
+          "appid": "wxa05dd4cb27700c08"
+        },
+        {
+          "type": "click",
+          "name": "使用说明",
+          "key": "USER_GUIDE"
+        }
+      ]
+    }
+  ]
+} 

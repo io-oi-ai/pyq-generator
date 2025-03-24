@@ -1,0 +1,9 @@
+{
+  "name": "ai-content-generator",
+  "version": "1.0.0",
+  "description": "AI Content Generator Mini Program",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.10.19"
+  }
+} 

@@ -1,0 +1,379 @@
+body {
+    background-color: #f7f7f7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.input-section {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e8e8e8;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #07C160;
+}
+
+.requirements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.select-item {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #e8e8e8;
+    font-size: 15px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.select-item:hover {
+    border-color: #07C160;
+}
+
+.select-item:focus {
+    outline: none;
+    border-color: #07C160;
+    box-shadow: 0 0 0 2px rgba(7,193,96,0.1);
+}
+
+#generateBtn {
+    grid-column: 1 / -1;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #07C160;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(7,193,96,0.2);
+}
+
+button:hover {
+    background-color: #06b054;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(7,193,96,0.3);
+}
+
+button:disabled {
+    background-color: #a8e2c1;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.result-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    min-height: 120px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+#resultText {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 15px;
+    white-space: pre-wrap;
+}
+
+#copyBtn {
+    background-color: #f8f9fa;
+    color: #07C160;
+    border: 2px solid #07C160;
+    margin-top: 15px;
+    width: 100%;
+}
+
+#copyBtn:hover {
+    background-color: #07C160;
+    color: white;
+}
+
+/* 添加响应式设计 */
+@media (max-width: 480px) {
+    .container {
+        margin: 10px auto;
+    }
+    
+    .input-section, .result-section {
+        padding: 15px;
+    }
+    
+    button {
+        width: 100%;
+    }
+    
+    .requirements {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .select-item {
+        width: 100%;
+    }
+}
+
+/* 在现有样式的基础上添加以下内容 */
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.result-count {
+    font-weight: 500;
+    color: #333;
+}
+
+.result-time {
+    color: #666;
+    font-size: 14px;
+}
+
+.result-status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.result-status.pending {
+    background-color: #fff7e6;
+    color: #d46b08;
+    border: 1px solid #ffd591;
+}
+
+.result-status.confirmed {
+    background-color: #f6ffed;
+    color: #389e0d;
+    border: 1px solid #b7eb8f;
+}
+
+.result-content {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.result-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.result-actions button {
+    flex: 1;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.result-actions button:disabled {
+    background-color: #f5f5f5;
+    color: #999;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+}
+
+.copy-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+    .result-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+    }
+    
+    .result-actions button {
+        width: 100%;
+    }
+}
+
+/* 添加新的样式 */
+.optimization-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.option-group label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.advanced-options {
+    margin-bottom: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    color: #07C160;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: none;
+}
+
+.text-button:hover {
+    color: #06b054;
+    transform: none;
+    box-shadow: none;
+}
+
+.toggle-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.advanced-panel {
+    margin-top: 15px;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #07C160;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .optimization-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 添加新的输入相关样式 */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.optional {
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.text-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e8e8e8;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: #07C160;
+}
+
+.length-control {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #07C160;
+    cursor: pointer;
+} 

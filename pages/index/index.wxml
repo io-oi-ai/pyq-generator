@@ -1,0 +1,95 @@
+<view class="container">
+  <view class="header">
+    <text class="title">AI文案生成器</text>
+    <text class="subtitle">让AI为您生成完美的社交媒体文案</text>
+  </view>
+
+  <view class="form-container">
+    <!-- 初始文案输入 -->
+    <view class="input-group">
+      <text class="label">初始文案</text>
+      <textarea 
+        class="input-area" 
+        placeholder="请输入您的初始文案" 
+        bindinput="onInputChange"
+        value="{{inputText}}"
+      ></textarea>
+    </view>
+
+    <!-- 社交平台选择 -->
+    <view class="input-group">
+      <text class="label">社交平台</text>
+      <picker 
+        bindchange="onPlatformChange" 
+        value="{{platformIndex}}" 
+        range="{{platforms}}"
+      >
+        <view class="picker">
+          {{platforms[platformIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 语言风格选择 -->
+    <view class="input-group">
+      <text class="label">语言风格</text>
+      <picker 
+        bindchange="onStyleChange" 
+        value="{{styleIndex}}" 
+        range="{{styles}}"
+      >
+        <view class="picker">
+          {{styles[styleIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 网络热梗选择 -->
+    <view class="input-group">
+      <text class="label">网络热梗</text>
+      <picker 
+        bindchange="onTrendChange" 
+        value="{{trendIndex}}" 
+        range="{{trends}}"
+      >
+        <view class="picker">
+          {{trends[trendIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 文本长度滑块 -->
+    <view class="input-group">
+      <text class="label">文本长度: {{textLength}}字</text>
+      <slider 
+        min="50" 
+        max="300" 
+        value="{{textLength}}" 
+        bindchange="onLengthChange"
+        activeColor="#9747FF"
+        backgroundColor="#E5E5E5"
+      />
+    </view>
+
+    <!-- 生成按钮 -->
+    <button 
+      class="generate-btn" 
+      bindtap="onGenerate"
+      loading="{{isGenerating}}"
+    >
+      生成文案
+    </button>
+
+    <!-- 生成结果展示 -->
+    <view class="result-container" wx:if="{{generatedText}}">
+      <text class="result-title">生成结果</text>
+      <text class="result-text">{{generatedText}}</text>
+      <button 
+        class="copy-btn" 
+        bindtap="onCopy"
+      >
+        复制文案
+      </button>
+    </view>
+  </view>
+</view> 
